@@ -1,12 +1,46 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Image, Text } from 'react-native';
+import { Form } from '@unform/mobile';
 
-import { Container } from './styles';
+import Logo from '../../../assets/images/Logo.png';
+import Lock from '../../../assets/images/icons/Lock.png';
+import Email from '../../../assets/images/icons/Email.png';
 
-const SignIn:React.FC = () => (
-  <Container>
-    <Text>SignIn</Text>
-  </Container>
-)
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+
+import {
+  Container,
+  FormContent,
+  InputView,
+  InputText,
+  ForgotPasswordText,
+ } from './styles';
+
+const SignIn:React.FC = () => {
+  const handleOnSubmit = () => {
+    console.log('odpkawpodaw');
+  }
+
+  return (
+    <Container>
+      <Image source={Logo} />
+      <Form onSubmit={handleOnSubmit} style={{ width: '100%' }}>
+        <FormContent>
+          <InputView>
+            <InputText>E-mail</InputText>
+            <Input icon={Email} placeholder="johndoe@umberlla.com" />
+          </InputView>
+          <InputView lastChild={true}>
+            <InputText>Senha</InputText>
+            <Input icon={Lock} placeholder="••••••••••••" />
+            <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+          </InputView>
+          <Button>Entrar</Button>
+        </FormContent>
+      </Form>
+    </Container>
+  )
+}
 
 export default SignIn;
