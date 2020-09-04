@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { flexCenter } from '../../styles/functions';
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled(RectButton)`
   ${flexCenter('row')};
   width: 100%;
   height: 56px;
